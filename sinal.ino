@@ -1,4 +1,4 @@
-const int ledVerde = 4;
+const int ledVerde = 9;
 const int ledAmarelo = 8;
 const int ledVermelho = 7;
 const int botao = 2;
@@ -63,6 +63,9 @@ void loop() {
       buzzerConectado = true;
     }
     carros_detectados = Serial.parseInt();
+    if (carros_detectados == 1) duracao_verde = 6000;
+    else if (carros_detectados == 2) duracao_verde = 12000;
+    else if (carros_detectados == 3) duracao_verde = 18000;
   }
 
   if (digitalRead(ledVermelho) == HIGH && millis() - tempo_vermelho >= 4000) {
